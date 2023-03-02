@@ -5,7 +5,13 @@ import RoutProgressBar from "./RouteProgressBar";
 import ShipPin from "./ShipPin";
 
 export default function RouteIndicatorElement(params: object): JSX.Element {
-  const styles = css({ color: "navy", position: "relative" });
+  const styles = css({
+    color: "navy",
+    position: "relative",
+    alignSelf: "center",
+    width: "70%",
+    border: "1px solid red"
+  });
   return (
     <div css={styles}>
       <ContextProvider>

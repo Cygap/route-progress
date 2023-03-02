@@ -3,7 +3,12 @@ import Props from "../interfaces/PropsInterface";
 import route from "../services/ComputeRouteData";
 import spots from "../services/ComputeSpots";
 
-const initialState = { timeStamp: route.now as number, currentId: spots[0].id };
+const initialState = {
+  timeStamp: route.now as number,
+  currentId:
+    spots.find((spot) => spot.id < (route.now as number) && !spot.completed)
+      ?.id ?? spots[spots.length - 1]
+};
 
 function currentSpotReducer(
   state: typeof initialState,
@@ -11,19 +16,16 @@ function currentSpotReducer(
 ): typeof initialState {
   switch (action.type) {
     case "UPDATE":
-      //   console.log(
-      //     "%cCurrentSpotContext.tsx line:14 new Date(state.currentId",
-      //     "color: #007acc;",
-      //     new Date(state.currentId)
-      //   );
       const newSpot = spots.find(
         (spot) => spot.id < Date.now() && spot.id > state.currentId
       );
       if (newSpot) {
+        newSpot.completed = true;
         console.log(
-          "%cCurrentSpotContext.tsx line:22 newSpot",
+          "%cCurrentSpotContext.tsx line:22 newSpot vs state",
           "color: #007acc;",
-          new Date(newSpot.id)
+          new Date(newSpot.id),
+          new Date(state.timeStamp)
         );
       }
       return {

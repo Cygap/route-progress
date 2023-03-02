@@ -16,12 +16,13 @@ export default function ShipPin(params: object) {
 
   const styles = css({
     position: "relative",
-    height: 50,
-    width: 50
+    color: "navy",
+    height: "5rem",
+    width: "5rem"
   });
   const leftOffset = `${
-    spots.map((spot) => spot.id).indexOf(state.currentId) * 1.5
-  }rem`;
+    spots.find((spot) => spot.id === state.currentId)?.displayPos
+  }%`;
   const posStyles = { left: leftOffset };
   return (
     <div css={styles} style={posStyles}>

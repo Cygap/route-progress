@@ -8,8 +8,15 @@ if (route.departureTimeStamp && route.arrivalTimeStamp && route.spotInterval) {
     i <= route.arrivalTimeStamp;
     i += route.spotInterval
   ) {
-    spots.push({ id: i, timeStamp: i });
+    spots.push({
+      id: i,
+      completed: true,
+      displayPos: ((i - route.departureTimeStamp) / (route.duration ?? 1)) * 100
+    });
   }
+  spots
+    .filter((spot) => spot.id > (route.now as number))
+    .forEach((spot) => (spot.completed = false));
 }
 
 export default spots;
