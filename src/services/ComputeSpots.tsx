@@ -10,8 +10,7 @@ if (route.departureTimeStamp && route.arrivalTimeStamp && route.spotInterval) {
   ) {
     spots.push({
       id: i,
-      completed: true,
-      displayPos: ((i - route.departureTimeStamp) / (route.duration ?? 1)) * 100
+      completed: true
     });
   }
   spots
