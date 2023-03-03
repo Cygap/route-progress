@@ -15,11 +15,7 @@ const initialState = {
   portOfLoading: route.portOfLoading,
   portOfDischarge: route.portOfDischarge
 };
-console.log(
-  "%cCurrentSpotContext.tsx line:15 initialState",
-  "color: #007acc;",
-  initialState
-);
+
 function currentSpotReducer(
   state: typeof initialState,
   action: { type: string; payload?: object }

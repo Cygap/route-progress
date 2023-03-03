@@ -3,8 +3,9 @@ import { css } from "@emotion/react";
 import { useContext, useEffect } from "react";
 import CurrentSpotContext from "../providers/CurrentSpotContext";
 import { ReactComponent as ShipIcon } from "../assets/ship-solid.svg";
+import Props from "../interfaces/PropsInterface";
 
-export default function ShipPin(params: object) {
+export default function ShipPin(props: Props) {
   const { state, dispatch } = useContext(CurrentSpotContext);
   useEffect(() => {
     const currentSpotIndex = state.spots
@@ -13,7 +14,7 @@ export default function ShipPin(params: object) {
 
     if (currentSpotIndex < state.spots.length - 1) {
       const delay = state.spots[currentSpotIndex + 1].id - Date.now() + 10;
-      console.log("%cShipPin.tsx line:13 delay", "color: #007acc;", delay);
+
       const timeoutID = setTimeout(() => {
         dispatch({ type: "UPDATE" });
       }, delay);

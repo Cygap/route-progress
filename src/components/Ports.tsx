@@ -11,7 +11,8 @@ export default function Ports(props: Props) {
         width: "100%",
         display: "flex",
         flexFlow: "row nowrap",
-        justifyContent: "space-between"
+        justifyContent: "space-between",
+        fontSize: "1.5rem"
       }}>
       <p>{state.portOfLoading}</p>
       <p>{state.portOfDischarge}</p>

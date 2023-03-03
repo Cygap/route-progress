@@ -25,8 +25,8 @@ export default function RoutProgressBar(props: Props): JSX.Element {
             css={{
               fontSize:
                 i === 0 || i === state.spots.length - 1
-                  ? fontSize * 2 + "rem"
-                  : fontSize + "rem",
+                  ? fontSize * 2 + "em"
+                  : fontSize + "em",
               fontWeight: "bolder"
             }}
             key={spot.id}
