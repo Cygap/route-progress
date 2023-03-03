@@ -12,6 +12,6 @@ interface RouteInterface {
 }
 ```
 
-if the `departureTime` or `arrivalTime` is string it should conform ISO 8601 format (https://tc39.es/ecma262/#sec-date-time-string-format) and include indication of a timeZone. If no timesone is indicated, than it will be presume to have the same timezone as a runtime.
+if either `departureTime` or `arrivalTime` is a string than it should conform to ISO 8601 format (https://tc39.es/ecma262/#sec-date-time-string-format) and include indication of a timeZone. If no timesone is indicated, than it will be presumed to have the same timezone as a runtime.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
