@@ -7,9 +7,18 @@ import { ReactComponent as ShipIcon } from "../assets/ship-solid.svg";
 export default function ShipPin(params: object) {
   const { state, dispatch } = useContext(CurrentSpotContext);
   useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      dispatch({ type: "UPDATE" });
-    }, state.spotInterval);
+    const currentSpotIndex = state.spots
+      .map((spot) => spot.id)
+      .indexOf(state.currentId);
+
+    if (currentSpotIndex < state.spots.length - 1) {
+      const delay = state.spots[currentSpotIndex + 1].id - Date.now() + 10;
+      console.log("%cShipPin.tsx line:13 delay", "color: #007acc;", delay);
+      const timeoutID = setTimeout(() => {
+        dispatch({ type: "UPDATE" });
+      }, delay);
+      return () => clearTimeout(timeoutID);
+    }
   }, [state, dispatch]);
 
   const styles = css({
@@ -32,7 +41,6 @@ export default function ShipPin(params: object) {
             state.spots.map((spot) => spot.id).indexOf(state.currentId) + 1
         }}
       />
-      {/* <div>{spots.map((spot) => new Date(spot.id)).join(", ")}</div> */}
     </div>
   );
 }
