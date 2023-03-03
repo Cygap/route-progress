@@ -2,8 +2,6 @@
 import { css } from "@emotion/react";
 import { useContext, useEffect } from "react";
 import CurrentSpotContext from "../providers/CurrentSpotContext";
-import route from "../services/ComputeRouteData";
-import spots from "../services/ComputeSpots";
 import { ReactComponent as ShipIcon } from "../ship-solid.svg";
 
 export default function ShipPin(params: object) {
@@ -11,7 +9,7 @@ export default function ShipPin(params: object) {
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       dispatch({ type: "UPDATE" });
-    }, route.spotInterval);
+    }, state.spotInterval);
   }, [state, dispatch]);
 
   const styles = css({
@@ -21,7 +19,7 @@ export default function ShipPin(params: object) {
     width: "5rem"
   });
   const leftOffset = `${
-    spots.find((spot) => spot.id === state.currentId)?.displayPos
+    state.spots.find((spot) => spot.id === state.currentId)?.displayPos
   }%`;
   const posStyles = { left: leftOffset };
   return (
