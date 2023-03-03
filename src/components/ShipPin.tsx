@@ -2,7 +2,7 @@
 import { css } from "@emotion/react";
 import { useContext, useEffect } from "react";
 import CurrentSpotContext from "../providers/CurrentSpotContext";
-import { ReactComponent as ShipIcon } from "../ship-solid.svg";
+import { ReactComponent as ShipIcon } from "../assets/ship-solid.svg";
 
 export default function ShipPin(params: object) {
   const { state, dispatch } = useContext(CurrentSpotContext);
@@ -14,9 +14,10 @@ export default function ShipPin(params: object) {
 
   const styles = css({
     position: "relative",
-    color: "navy",
-    height: "5rem",
-    width: "5rem"
+    height: "3.5rem",
+    width: "3.5rem",
+    marginBottom: "2rem",
+    fill: "steelblue"
   });
   const leftOffset = `${
     state.spots.find((spot) => spot.id === state.currentId)?.displayPos
@@ -24,7 +25,7 @@ export default function ShipPin(params: object) {
   const posStyles = { left: leftOffset };
   return (
     <div css={styles} style={posStyles}>
-      <ShipIcon />
+      <ShipIcon css={{ position: "relative" }} />
       {/* <div>{spots.map((spot) => new Date(spot.id)).join(", ")}</div> */}
     </div>
   );

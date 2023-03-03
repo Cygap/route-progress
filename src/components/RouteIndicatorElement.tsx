@@ -6,7 +6,7 @@ import ShipPin from "./ShipPin";
 
 export default function RouteIndicatorElement(params: object): JSX.Element {
   const styles = css({
-    color: "navy",
+    color: "steelblue",
     position: "relative",
     alignSelf: "center",
     width: "70%",
@@ -16,7 +16,7 @@ export default function RouteIndicatorElement(params: object): JSX.Element {
     <div css={styles}>
       <ContextProvider>
         <ShipPin />
-        <div></div>
+
         <RoutProgressBar />
       </ContextProvider>
     </div>

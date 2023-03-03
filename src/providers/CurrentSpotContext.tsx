@@ -3,8 +3,8 @@ import Props from "../interfaces/PropsInterface";
 import route from "../services/ComputeRouteData";
 import spots from "../services/ComputeSpots";
 
-const startingSpot = Math.min(
-  ...spots.filter((spot) => !spot.completed).map((spot) => spot.id)
+const startingSpot = Math.max(
+  ...spots.filter((spot) => spot.completed).map((spot) => spot.id)
 );
 const initialState = {
   timeStamp: route.now as number,
