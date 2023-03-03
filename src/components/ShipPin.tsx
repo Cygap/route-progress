@@ -13,19 +13,25 @@ export default function ShipPin(params: object) {
   }, [state, dispatch]);
 
   const styles = css({
-    position: "relative",
-    height: "3.5rem",
-    width: "3.5rem",
-    marginBottom: "2rem",
-    fill: "steelblue"
+    marginBottom: "1rem",
+    display: "grid",
+    gridTemplateColumns: "repeat(13, 1fr)",
+    justifyItems: "center"
   });
-  const leftOffset = `${
-    state.spots.find((spot) => spot.id === state.currentId)?.displayPos
-  }%`;
-  const posStyles = { left: leftOffset };
+
   return (
-    <div css={styles} style={posStyles}>
-      <ShipIcon css={{ position: "relative" }} />
+    <div css={styles}>
+      <ShipIcon
+        css={{
+          height: "3.5rem",
+          width: "3.5rem",
+          fill: "steelblue"
+        }}
+        style={{
+          gridColumnStart:
+            state.spots.map((spot) => spot.id).indexOf(state.currentId) + 1
+        }}
+      />
       {/* <div>{spots.map((spot) => new Date(spot.id)).join(", ")}</div> */}
     </div>
   );

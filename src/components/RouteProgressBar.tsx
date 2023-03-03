@@ -14,9 +14,9 @@ export default function RoutProgressBar(props: Props): JSX.Element {
   return (
     <div
       css={{
-        display: "flex",
-        flexFlow: "row nowrap",
-        justifyContent: "space-between",
+        display: "grid",
+        gridTemplateColumns: "repeat(13,1fr)",
+        justifyItems: "center",
         alignItems: "center"
       }}>
       {state.spots.map(function (spot: SpotInterface, i: number) {
