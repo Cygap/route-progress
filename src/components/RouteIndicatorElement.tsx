@@ -1,10 +1,11 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import { ContextProvider } from "../providers/CurrentSpotContext";
+import Ports from "./Ports";
 import RoutProgressBar from "./RouteProgressBar";
 import ShipPin from "./ShipPin";
 
-export default function RouteIndicatorElement(params: object): JSX.Element {
+export default function RouteIndicatorElement(): JSX.Element {
   const styles = css({
     color: "steelblue",
     position: "relative",
@@ -16,8 +17,8 @@ export default function RouteIndicatorElement(params: object): JSX.Element {
     <div css={styles}>
       <ContextProvider>
         <ShipPin />
-
         <RoutProgressBar />
+        <Ports />
       </ContextProvider>
     </div>
   );

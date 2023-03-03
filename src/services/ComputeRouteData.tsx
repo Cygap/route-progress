@@ -1,7 +1,7 @@
 import RouteInterface from "../interfaces/RouteInterface";
 import initialRoute from "./GetRoute";
 
-class Route implements RouteInterface {
+export class Route implements RouteInterface {
   portOfLoading!: string;
   portOfDischarge!: string;
   departureTime!: string | Date;

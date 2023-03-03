@@ -11,7 +11,9 @@ const initialState = {
   currentId:
     startingSpot === Infinity ? spots[spots.length - 1].id : startingSpot,
   spots,
-  spotInterval: route.spotInterval
+  spotInterval: route.spotInterval,
+  portOfLoading: route.portOfLoading,
+  portOfDischarge: route.portOfDischarge
 };
 console.log(
   "%cCurrentSpotContext.tsx line:15 initialState",
@@ -30,19 +32,11 @@ function currentSpotReducer(
 
       if (newSpot) {
         newSpot.completed = true;
-        console.log(
-          "%cCurrentSpotContext.tsx line:22 newSpot vs state",
-          "color: #007acc;",
-          new Date(newSpot.id),
-          new Date(state.timeStamp),
-          newSpot.completed
-        );
       }
       return {
+        ...state,
         timeStamp: Date.now(),
-        currentId: newSpot ? newSpot.id : state.currentId,
-        spots,
-        spotInterval: state.spotInterval
+        currentId: newSpot ? newSpot.id : state.currentId
       };
 
     default:
