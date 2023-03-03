@@ -28,7 +28,7 @@ export default function ShipPin(props: Props) {
     gridTemplateColumns: "repeat(13, 1fr)",
     justifyItems: "center"
   });
-
+  // according to https://emotion.sh/docs/best-practices#use-the-style-prop-for-dynamic-styles the variable styles are passed to elements with the style prop
   return (
     <div css={styles}>
       <ShipIcon
