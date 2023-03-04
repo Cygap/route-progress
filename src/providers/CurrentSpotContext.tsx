@@ -22,7 +22,8 @@ function currentSpotReducer(
 ): typeof initialState {
   switch (action.type) {
     case "UPDATE":
-      const newSpot = state.spots.find((spot) => {
+      const updatedSpots = [...state.spots];
+      const newSpot = updatedSpots.find((spot) => {
         return spot.id < Date.now() && spot.id > state.currentId;
       });
 
@@ -31,6 +32,7 @@ function currentSpotReducer(
       }
       return {
         ...state,
+        spots: updatedSpots,
         timeStamp: Date.now(),
         currentId: newSpot ? newSpot.id : state.currentId
       };

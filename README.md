@@ -3,7 +3,7 @@
 This progress bar shows the presumed position of a vehicle based on it's scheduled departure and arrival times. The assumed position is calculated as a ratio of time passed since the departure relative to the time of the arrival.
 The element requires an input object of a following type:
 
-```
+```TS
 interface RouteInterface {
   portOfLoading: string;
   portOfDischarge: string;
